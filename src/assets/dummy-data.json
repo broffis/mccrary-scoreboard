@@ -6,7 +6,7 @@
       "player_name_last": "McCrary",
       "country_id": 1,
       "country_name": "Egypt",
-      "country_flag_url": "",
+      "country_flag_url": "flags/egypt.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -16,7 +16,7 @@
       "player_name_last": "McCrary",
       "country_id": 2,
       "country_name": "England",
-      "country_flag_url": "",
+      "country_flag_url": "flags/england.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -26,7 +26,7 @@
       "player_name_last": "McCrary",
       "country_id": 3,
       "country_name": "Germany",
-      "country_flag_url": "",
+      "country_flag_url": "flags/germany.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -36,7 +36,7 @@
       "player_name_last": "McCrary-Roffis",
       "country_id": 4,
       "country_name": "France",
-      "country_flag_url": "",
+      "country_flag_url": "flags/france.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -46,7 +46,7 @@
       "player_name_last": "Roffis",
       "country_id": null,
       "country_name": "Iceland",
-      "country_flag_url": "",
+      "country_flag_url": "flags/iceland.png",
       "group_id": null,
       "group_name": "Purple Parrots"
     },
@@ -56,7 +56,7 @@
       "player_name_last": "Ellis",
       "country_id": 6,
       "country_name": "Scotland",
-      "country_flag_url": "",
+      "country_flag_url": "flags/scotland.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -66,7 +66,7 @@
       "player_name_last": "Bradford",
       "country_id": 7,
       "country_name": "Wales",
-      "country_flag_url": "",
+      "country_flag_url": "flags/wales.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -76,7 +76,7 @@
       "player_name_last": "Harmon",
       "country_id": 8,
       "country_name": "Norway",
-      "country_flag_url": "",
+      "country_flag_url": "flags/norway.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -86,7 +86,7 @@
       "player_name_last": "Harmon",
       "country_id": 9,
       "country_name": "Brazil",
-      "country_flag_url": "",
+      "country_flag_url": "flags/brazil.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -96,7 +96,7 @@
       "player_name_last": "Liebenow",
       "country_id": 10,
       "country_name": "Canada",
-      "country_flag_url": "",
+      "country_flag_url": "flags/canada.png",
       "group_id": 1,
       "group_name": "Purple Parrots"
     },
@@ -106,7 +106,7 @@
       "player_name_last": "Burbridge",
       "country_id": 11,
       "country_name": "Sweden",
-      "country_flag_url": "",
+      "country_flag_url": "flags/sweden.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -116,7 +116,7 @@
       "player_name_last": "Burbridge",
       "country_id": 12,
       "country_name": "Republic of Texas",
-      "country_flag_url": "",
+      "country_flag_url": "flags/republic_of_texas.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -126,7 +126,7 @@
       "player_name_last": "Ross",
       "country_id": 13,
       "country_name": "Finland",
-      "country_flag_url": "",
+      "country_flag_url": "flags/finland.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -136,7 +136,7 @@
       "player_name_last": "Barker",
       "country_id": 14,
       "country_name": "Greece",
-      "country_flag_url": "",
+      "country_flag_url": "flags/greece.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -146,7 +146,7 @@
       "player_name_last": "Johns",
       "country_id": 15,
       "country_name": "Israel",
-      "country_flag_url": "",
+      "country_flag_url": "flags/israel.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     },
@@ -156,7 +156,7 @@
       "player_name_last": "Malick",
       "country_id": 16,
       "country_name": "Poland",
-      "country_flag_url": "",
+      "country_flag_url": "flags/poland.png",
       "group_id": 2,
       "group_name": "Blue Barracudas"
     }

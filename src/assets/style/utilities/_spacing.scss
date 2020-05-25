@@ -57,6 +57,16 @@ $paddings: ('0', '5', '10', '15', '20', '25', '30', '35', '40', '45');
   .u-padding-l-#{$padding} {
     padding-left: #{$padding}px !important;
   }
+  
+  .u-padding-vert-#{$padding} {
+    padding-top: #{$padding}px !important;
+    padding-bottom: #{$padding}px !important;
+  }
+
+  .u-padding-horz-#{$padding} {
+    padding-left: #{$padding}px !important;
+    padding-right: #{$padding}px !important;
+  }
 }
 
 /* WIDTHS */

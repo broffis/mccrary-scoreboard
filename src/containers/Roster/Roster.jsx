@@ -3,7 +3,7 @@ import React from 'react';
 import Player from '../../components/Player/Player';
 
 import { roster } from '../../assets/dummy-data.json';
-import './roster.scss';
+// import './roster.scss';
 
 const Roster = () => {
 

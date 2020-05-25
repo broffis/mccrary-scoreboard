@@ -1,5 +1,29 @@
 @import 'variables/all';
 @import 'mixins/all';
+@import 'utilities/all';
 
-@import './spacing';
-@import './typography';
+@import 'components/all';
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+
+.App {
+  background-color: $color-background;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

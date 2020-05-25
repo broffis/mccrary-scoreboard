@@ -1,0 +1,82 @@
+.roster {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  &__header {
+    width: 100%;
+    max-width: 650px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 5px 15px 15px;
+    background-color: $color-background;
+    border-bottom: 1px solid rgba($color-gray, 0.2);
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &__column {
+    text-align: left;
+
+    @include breakpoint-sm {
+      text-align: center;
+    }
+
+    &.country {
+      width: 25%;
+    }
+
+    &.player {
+      width: 50%;
+      text-align: center;
+    }
+
+    &.group {
+      width: 25%;
+    }
+  }
+
+  &__player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 650px;
+    margin: 5px 0;
+    padding: 20px 15px;
+    border: 1px solid rgba($color-gray, 0.2);
+    border-radius: 3px;
+    background-color: rgba($color-gray, 0.05);
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+
+    @include breakpoint-sm {
+      margin: 10px 0;
+    }
+
+    .country-subtext {
+      font-size: 0.75rem;
+
+      @include breakpoint-sm {
+        font-size: 1.25rem;
+      }
+    }
+
+    .player-name {
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px 0 20px;
+      font-size: 1.25rem;
+      text-align: left;
+
+      @include breakpoint-sm {
+        margin-left: 15px;
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
