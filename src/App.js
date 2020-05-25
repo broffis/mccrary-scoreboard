@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import './assets/style/all.scss';
 
-import Roster from './containers/Roster/Roster';
+import Roster from './containers/Roster';
 
 function App() {
   return (

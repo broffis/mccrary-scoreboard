@@ -1,14 +1,17 @@
 import React from 'react';
 
-import Player from '../../components/Player/Player';
+import Player from '../components/Player';
 
-import { roster } from '../../assets/dummy-data.json';
+import { roster } from '../assets/dummy-data.json';
 // import './roster.scss';
 
 const Roster = () => {
 
   return (
     <div className="roster">
+      <div className="roster__hero">
+        <img className="roster__hero-img" src="hero/Summer2020CapGF.png" />
+      </div>
       <div className="roster__header">
         <p className="roster__column country heading-3 font-semibold">Country</p>
         <p className="roster__column player heading-3 font-semibold">Player</p>
