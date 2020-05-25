@@ -1,0 +1,512 @@
+{
+  "roster": [
+    {
+      "player_id": 1,
+      "player_name_first": "Shaun",
+      "player_name_last": "McCrary",
+      "country_id": 1,
+      "country_name": "Egypt",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 2,
+      "player_name_first": "Tiffany",
+      "player_name_last": "McCrary",
+      "country_id": 2,
+      "country_name": "England",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 3,
+      "player_name_first": "Caitlyn",
+      "player_name_last": "McCrary",
+      "country_id": 3,
+      "country_name": "Germany",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 4,
+      "player_name_first": "Angela",
+      "player_name_last": "McCrary-Roffis",
+      "country_id": 4,
+      "country_name": "France",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 5,
+      "player_name_first": "Brandon",
+      "player_name_last": "Roffis",
+      "country_id": null,
+      "country_name": "Iceland",
+      "country_flag_url": "",
+      "group_id": null,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 6,
+      "player_name_first": "Chris",
+      "player_name_last": "Ellis",
+      "country_id": 6,
+      "country_name": "Scotland",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 7,
+      "player_name_first": "Eric",
+      "player_name_last": "Bradford",
+      "country_id": 7,
+      "country_name": "Wales",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 8,
+      "player_name_first": "Keith",
+      "player_name_last": "Harmon",
+      "country_id": 8,
+      "country_name": "Norway",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 9,
+      "player_name_first": "Megan",
+      "player_name_last": "Harmon",
+      "country_id": 9,
+      "country_name": "Brazil",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 10,
+      "player_name_first": "Chelsey",
+      "player_name_last": "Liebenow",
+      "country_id": 10,
+      "country_name": "Canada",
+      "country_flag_url": "",
+      "group_id": 1,
+      "group_name": "Purple Parrots"
+    },
+    {
+      "player_id": 11,
+      "player_name_first": "Mark",
+      "player_name_last": "Burbridge",
+      "country_id": 11,
+      "country_name": "Sweden",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 12,
+      "player_name_first": "Sarah",
+      "player_name_last": "Burbridge",
+      "country_id": 12,
+      "country_name": "Republic of Texas",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 13,
+      "player_name_first": "Michael",
+      "player_name_last": "Ross",
+      "country_id": 13,
+      "country_name": "Finland",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 14,
+      "player_name_first": "Steve",
+      "player_name_last": "Barker",
+      "country_id": 14,
+      "country_name": "Greece",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 15,
+      "player_name_first": "Lauren",
+      "player_name_last": "Johns",
+      "country_id": 15,
+      "country_name": "Israel",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    },
+    {
+      "player_id": 16,
+      "player_name_first": "Sarah",
+      "player_name_last": "Malick",
+      "country_id": 16,
+      "country_name": "Poland",
+      "country_flag_url": "",
+      "group_id": 2,
+      "group_name": "Blue Barracudas"
+    }
+  ],
+  "scoring-events": [
+    {
+      "playerId": 1,
+      "eventId": 1,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 3,
+      "eventId": 1,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 4,
+      "eventId": 1,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 5,
+      "eventId": 1,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 7,
+      "eventId": 2,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 10,
+      "eventId": 2,
+      "groupId": 1,
+      "points": 2,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 7,
+      "eventId": 2,
+      "groupId": 1,
+      "points": 1,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 5,
+      "eventId": 3,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 7,
+      "eventId": 3,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 4,
+      "eventId": 3,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 3,
+      "eventId": 3,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 1,
+      "eventId": 4,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 8,
+      "eventId": 4,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 3,
+      "eventId": 4,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 4,
+      "eventId": 4,
+      "groupId": 1,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 6,
+      "eventId": 5,
+      "groupId": 1,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 1,
+      "eventId": 5,
+      "groupId": 1,
+      "points": 2,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 8,
+      "eventId": 5,
+      "groupId": 1,
+      "points": 1,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 1
+    },
+    {
+      "playerId": 2,
+      "eventId": 1,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 13,
+      "eventId": 1,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 11,
+      "eventId": 1,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 16,
+      "eventId": 1,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 15,
+      "eventId": 2,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 2,
+      "eventId": 2,
+      "groupId": 2,
+      "points": 2,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 12,
+      "eventId": 2,
+      "groupId": 2,
+      "points": 1,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 16,
+      "eventId": 3,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 15,
+      "eventId": 3,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 2,
+      "eventId": 3,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 11,
+      "eventId": 3,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 14,
+      "eventId": 4,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 10,
+      "eventId": 4,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 11,
+      "eventId": 4,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 2,
+      "eventId": 4,
+      "groupId": 2,
+      "points": 1.5,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 14,
+      "eventId": 5,
+      "groupId": 2,
+      "points": 3,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 12,
+      "eventId": 5,
+      "groupId": 2,
+      "points": 2,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    },
+    {
+      "playerId": 16,
+      "eventId": 5,
+      "groupId": 2,
+      "points": 1,
+      "tournamentId": 1,
+      "date_created": "07/25/2020",
+      "created_by": 13
+    }
+  ],
+  "events": [
+    {
+      "name": "Frisbee Toss",
+      "id": 1
+    },
+    {
+      "name": "Quarters",
+      "id": 2
+    },
+    {
+      "name": "Tits",
+      "id": 3
+    },
+    {
+      "name": "Beer Pong",
+      "id": 4
+    },
+    {
+      "name": "Chandelier",
+      "id": 5
+    }
+  ]
+}
