@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Player from '../components/Player';
+import RosterPlayer from '../components/RosterPlayer';
 
 import { roster } from '../assets/dummy-data.json';
 // import './roster.scss';
@@ -17,7 +17,7 @@ const Roster = () => {
         <p className="roster__column player heading-3 font-semibold">Player</p>
         <p className="roster__column group heading-3 font-semibold">Group</p>
       </div>
-      { roster.map(player => <Player key={`player-${player.player_id}`} {...player}/>)}
+      { roster.map(player => <RosterPlayer key={`player-${player.player_id}`} {...player}/>)}
     </div>
   );
 };

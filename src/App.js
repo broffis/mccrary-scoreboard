@@ -5,12 +5,14 @@ import './App.css';
 import './assets/style/all.scss';
 
 import Roster from './containers/Roster';
+import Group from './containers/Group';
 
 function App() {
   return (
     <div className="App">
       <Switch>
         <Route path="/roster" component={Roster} />
+        <Route path="/group/:groupId" component={Group}/>
         <Route path="/" component={() => <h1>Home Page</h1> }/>
         <Route render={() => <h1>Page Not Found</h1>}/>
       </Switch>
