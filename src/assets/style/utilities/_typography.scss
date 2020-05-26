@@ -52,7 +52,15 @@ $font-family:(
 );
 
 @each $key, $val in $font-family {
-  .font-#{$key} {
+  .font-primary-#{$key} {
+    font-family: $font-primary;
+    font-weight: #{$val};
+  }
+}
+
+@each $key, $val in $font-family {
+  .font-secondary-#{$key} {
+    font-family: $font-secondary;
     font-weight: #{$val};
   }
 }
