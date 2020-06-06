@@ -54,6 +54,17 @@
     &.group {
       width: 25%;
     }
+
+    &--link {
+      text-decoration: none;
+      cursor: pointer;
+      color: $color-black;
+
+      &:hover {
+        text-decoration: underline;
+        transform: scale(1.2);
+      }
+    }
   }
 
   &__player {

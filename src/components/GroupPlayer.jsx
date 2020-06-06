@@ -13,6 +13,7 @@ const GroupPlayer = (props) => {
         <img src={`${window.location.origin}/${props.country_flag_url}`} alt={`Flag of ${props.country_name}`} />
         <p className="group-player__player-name font-secondary-semibold">{props.player_name_first} {props.player_name_last}<span className="country-subtext font-secondary-light">{props.country_name}</span></p>
       </div>
+      <p className="group-player__score u-justify-self-center font-secondary-semibold">{props.total_points}</p>
       { eventScores.map(event => <p className="group-player__score u-justify-self-center font-secondary-semibold" key={`${props.player_id}-${event.event_name}`}>{event.event_points ? event.event_points : '-'}</p>)}
     </div>
   )

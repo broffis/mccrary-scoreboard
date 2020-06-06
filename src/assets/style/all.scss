@@ -4,8 +4,6 @@
 
 @import 'components/all';
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +16,27 @@
   background-color: $color-background;
 }
 
+.nav {
+  width: 50%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  &__link {
+    margin: 15px 0;
+
+    > a {
+      text-decoration: none;
+      color: black;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}
+
+
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -27,3 +46,4 @@
     transform: rotate(360deg);
   }
 }
+
