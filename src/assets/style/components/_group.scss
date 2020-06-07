@@ -1,6 +1,9 @@
 .group {
   position: relative;
-  overflow-x: scroll;
+
+  @include breakpoint-d-sm {
+    overflow-x: scroll;
+  }
  
   &__grid {
     display: grid;
@@ -41,7 +44,10 @@
     }
 
     &--scroll {
-      overflow: hidden;
+
+      @include breakpoint-sm {
+        overflow: hidden;
+      }
     }
     
     &--sticky {
