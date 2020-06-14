@@ -6,8 +6,8 @@ const EventUpdate = (props) => {
   return (
     <div className="event-update">
       <div className="event-update__header">
-        <p className="event-update__header-label">Player</p>
-        <p className="event-update__header-label">Score</p>
+        <p className="event-update__header-label-player">Player</p>
+        <p className="event-update__header-label-score">Score</p>
       </div>
       <ul className="event-update__players">
         {
@@ -19,7 +19,7 @@ const EventUpdate = (props) => {
           ))
         }
       </ul>
-      <button class="button --primary --centered">
+      <button className="button --primary --centered">
         Update Scores
       </button>
     </div>

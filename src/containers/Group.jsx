@@ -18,7 +18,6 @@ const Group = (props) => {
   });
 
   const [groupInfo] = groupData.filter(group => group.group_id === parseInt(groupId));
-  console.log('groupInfo', groupInfo)
 
   const eventTitles = eventHeader.map(event => event.name.replace(/\s/, '')).join('|');
 
@@ -28,7 +27,7 @@ const Group = (props) => {
       <Route path={url} component={() => (
         <React.Fragment>
           <Hero heroText={groupInfo.name} heroImage={groupInfo.logo} bgColor={groupInfo.heroColor}/>
-          <Scoreboard scores={groupScores} disableLinks={false}/>
+          <Scoreboard scores={groupScores} disableLinks={false} groupId={groupId}/>
         </React.Fragment>
       ) } />
     </Switch>

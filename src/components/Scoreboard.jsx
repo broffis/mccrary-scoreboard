@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
-import { useParams, Link, useRouteMatch } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-import { groupPageData, events } from '../assets/dummy-data.json';
+import { groupPageData, groupData, events } from '../assets/dummy-data.json';
 
 import GroupPlayer from './GroupPlayer';
 import Modal from './Modal';
 import EventUpdate from './EventUpdate';
 
 const Scoreboard = (props) => {
-  let { path, url } = useRouteMatch();
-
   const [activeEventData, setActiveEventData] = useState();
   const [showModal, setShowModal] = useState(false);
+
+  const [groupStyles] = groupData.filter(group => group.group_id === parseInt(props.groupId));
+  let boxStyles = {};
+
+  if (groupStyles) {
+    boxStyles = {
+      borderColor: groupStyles.borderColor,
+      backgroundColor: groupStyles.backgroundColor
+    }
+  }
 
   const eventHeader = events.sort((a,b) => {
     if (a.id > b.id) return 1;
@@ -78,14 +86,14 @@ const Scoreboard = (props) => {
           null
       }
 
-      <div className="scoreboard-wrapper">
+      <div className="scoreboard">
         <div className="group__grid group__grid-headers">
-          { props.disableLinks ? <p className="group__grid-header group__grid-header--sticky">Player</p> : <Link to="/roster" className="group__grid-header group__grid-header--sticky">Player</Link> }
-          { props.disableLinks ? <p className="group__grid-header group__grid-header--scroll u-justify-content-center">Total</p> : <Link to="/scoreboard" className="group__grid-header group__grid-header--scroll u-justify-content-center">Total</Link>}
+          { props.disableLinks ? <p className="group__grid-header group__grid-header--sticky" style={boxStyles}>Player</p> : <Link to="/roster" className="group__grid-header group__grid-header--sticky" style={boxStyles}>Player</Link> }
+          { props.disableLinks ? <p className="group__grid-header group__grid-header--scroll u-justify-content-center" style={boxStyles}>Total</p> : <Link to="/scoreboard" className="group__grid-header group__grid-header--scroll u-justify-content-center" style={boxStyles}>Total</Link>}
 
           { eventHeader.map(event => props.disableLinks ? 
-              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" key={`event-${event.id}`}>{event.name}</p> :
-              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" onClick={() => openEventModal(event.id)} key={`event-${event.id}`}>{event.name}</p>
+              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" key={`event-${event.id}`} style={boxStyles}>{event.name}</p> :
+              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" onClick={() => openEventModal(event.id)} key={`event-${event.id}`} style={boxStyles}>{event.name}</p>
             )}
         </div>
         <div>

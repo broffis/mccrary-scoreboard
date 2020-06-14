@@ -37,7 +37,7 @@ const FullScoreboard = (props) => {
     <div>
       <Hero heroText="Scoreboard"/>      
       <ul className="scoreboard__buttons">
-        { tabs.map(tab => <li className={`scoreboard__button ${ tab.value === activeTab ? '--is-active' : ''}`} onClick={() => setActiveTab(tab.value)}>{tab.label}</li>)}
+        { tabs.map(tab =><li key={`scoreboard_tabs--${tab.value}`} className={`scoreboard__button ${ tab.value === activeTab ? '--is-active' : ''}`} onClick={() => setActiveTab(tab.value)}>{tab.label}</li>)}
       </ul>
       {
         display

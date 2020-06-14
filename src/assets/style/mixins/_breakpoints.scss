@@ -37,6 +37,18 @@
   }
 }
 
+@mixin breakpoint-xxl {
+  @media (min-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+@mixin breakpoint-tv {
+  @media (min-width: #{$screen-tv}) {
+    @content;
+  }
+}
+
 /* DESKTOP FIRST */
 @mixin breakpoint-d-xs {
   @media (max-width: #{$screen-xs - 1}) {

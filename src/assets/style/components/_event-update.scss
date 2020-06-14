@@ -7,11 +7,19 @@
     display: flex;
   }
 
-  &__header-label {
-    width: 50%;
+  &__header-label-player,
+  &__header-label-score {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
+  }
+
+  &__header-label-player {
+    width: 75%;
+  }
+
+  &__header-label-score {
+    width: 25%;
   }
 
   &__players {
@@ -30,9 +38,15 @@
 
   &__player-name,
   &__player-score {
-    width: 50%;
     font-size: 1.1rem;
     padding: 10px 0;
+  }
 
+  &__player-name {
+    width: 75%;
+  }
+
+  &__player-score {
+    width: 25%;
   }
 }
