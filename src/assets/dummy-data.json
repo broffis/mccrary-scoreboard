@@ -1077,5 +1077,23 @@
         }
       ]
     }
+  ],
+  "groupData": [
+    {
+      "group_id": 1,
+      "backgroundColor": "#f8eaff",
+      "borderColor": "#46006a",
+      "heroColor": "#8100c4",
+      "logo": "legends-parrots.svg",
+      "name": "Purple Parrots"
+    },
+    {
+      "group_id": 2,
+      "backgroundColor": "#eaeeff",
+      "borderColor": "#2d3594",
+      "heroColor": "#000fc1",
+      "logo": "legends-barracudas.svg",
+      "name": "Blue Barracudas"
+    }
   ]
 }

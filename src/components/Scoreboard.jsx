@@ -77,17 +77,20 @@ const Scoreboard = (props) => {
           </Modal> :
           null
       }
-      <div className="group__grid group__grid-headers">
-        { props.disableLinks ? <p className="group__grid-header group__grid-header--sticky">Player</p> : <Link to="/roster" className="group__grid-header group__grid-header--sticky">Player</Link> }
-        { props.disableLinks ? <p className="group__grid-header group__grid-header--scroll u-justify-self-center">Total</p> : <Link to="/scoreboard" className="group__grid-header group__grid-header--scroll u-justify-self-center">Total</Link>}
 
-        { eventHeader.map(event => props.disableLinks ? 
-            <p className="group__grid-header group__grid-header--scroll u-justify-self-center" key={`event-${event.id}`}>{event.name}</p> :
-            <p className="group__grid-header group__grid-header--scroll u-justify-self-center" onClick={() => openEventModal(event.id)} key={`event-${event.id}`}>{event.name}</p>
-          )}
-      </div>
-      <div>
-        { playerScores.map(player => <GroupPlayer key={`group-${player.group_id}-player-${player.player_id}`} {...player}/>)}
+      <div className="scoreboard-wrapper">
+        <div className="group__grid group__grid-headers">
+          { props.disableLinks ? <p className="group__grid-header group__grid-header--sticky">Player</p> : <Link to="/roster" className="group__grid-header group__grid-header--sticky">Player</Link> }
+          { props.disableLinks ? <p className="group__grid-header group__grid-header--scroll u-justify-content-center">Total</p> : <Link to="/scoreboard" className="group__grid-header group__grid-header--scroll u-justify-content-center">Total</Link>}
+
+          { eventHeader.map(event => props.disableLinks ? 
+              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" key={`event-${event.id}`}>{event.name}</p> :
+              <p className="group__grid-header group__grid-header--scroll u-justify-content-center" onClick={() => openEventModal(event.id)} key={`event-${event.id}`}>{event.name}</p>
+            )}
+        </div>
+        <div>
+          { playerScores.map(player => <GroupPlayer key={`group-${player.group_id}-player-${player.player_id}`} {...player}/>)}
+        </div>
       </div>
     </div>
   );

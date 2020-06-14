@@ -16,7 +16,7 @@ const Modal = (props) => {
         }}>
         <div className="modal__header">
           <span className="modal__label">{props.header}</span>
-          <span className="modal__close-button" onClick={props.modalClosed}>&#215;</span>
+          <span className="modal__close-button" onClick={props.modalClosed}><img src={`${window.location.origin}/icons/close.svg`} alt=""/></span>
         </div>
         <div className="modal__body">
           {props.children}

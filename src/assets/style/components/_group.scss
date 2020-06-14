@@ -9,7 +9,7 @@
     display: grid;
     grid-gap: 16px;
     padding: 5px 16px 5px 0;
-    grid-template-columns: minmax(200px, 1.5fr) repeat(auto-fill,minmax(160px,1fr));
+    grid-template-columns: minmax(261px, 1.5fr) repeat(auto-fill,minmax(125px,1fr));
     grid-auto-flow: column;
     grid-auto-columns: minmax(160px,1fr);
     align-items: center;
@@ -18,8 +18,7 @@
     & > * {
       height: 100%;
       width: 100%;
-      justify-self: center;
-      align-self: center;
+      display: flex;
       text-align: center;
       border: 1px solid rgba($color-gray, 0.2);
       background-color: rgba($color-gray, 0.05);
@@ -35,7 +34,7 @@
     padding: 10px 0;
     font-size: 1.5rem;
     text-decoration: none;
-    color: $color-black;
+    color: $color-font;
     font-weight: $font-family-semi-bold;
 
     &:hover {
@@ -51,7 +50,8 @@
     }
     
     &--sticky {
-      position: sticky;
+      // position: sticky;
+      justify-content: center;
       left: 0;
       top: 0;
     }
@@ -62,26 +62,38 @@
 
   &__player-info {
     display: flex;
-    padding: 10px 0 10px 5px;
-    position: sticky;
+    padding: 10px 5px;
+    // position: sticky;
     left: 0;
     z-index: 1;
 
     img {
-      height: 30px;
+      height: 53px;
     }
   }
 
   &__player-name {
     display: flex;
     flex-direction: column;
-    margin-left: 5px;
+    margin-left: 15px;
     text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.2;
+
+
+    .country-subtext {
+      font-size: 0.85rem;
+    }
   }
 
   &__score {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.6;
     overflow: hidden;
+  }
+
+  &__score-box {
+    justify-content: center;
+    align-items: center;
   }
 }

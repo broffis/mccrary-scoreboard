@@ -9,6 +9,8 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 1rem;
+  line-height: 1.2;
+  color: $color-font;
 }
 
 
@@ -34,6 +36,11 @@
   }
 }
 
+
+.scoreboard-wrapper {
+  overflow: scroll;
+  padding-top: 10px;
+}
 
 
 

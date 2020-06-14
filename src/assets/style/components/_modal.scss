@@ -42,16 +42,18 @@
     align-items: center;
     padding: 16px;
     background-color: #293A42;
-    color: white
+
   }
 
   &__label {
     font-size: 1.5rem;
     font-weight: bold;
+    color: $color-white;
   }
 
   &__close-button {
     font-size: 1.5rem;
     cursor: pointer;
+    stroke: white;
   }
 }
