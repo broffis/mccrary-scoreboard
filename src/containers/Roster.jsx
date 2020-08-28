@@ -1,23 +1,21 @@
 import React from 'react';
 
-import Player from '../components/Player';
+import Hero from '../components/Hero';
+import RosterPlayer from '../components/RosterPlayer';
 
 import { roster } from '../assets/dummy-data.json';
-// import './roster.scss';
 
 const Roster = () => {
 
   return (
     <div className="roster">
-      <div className="roster__hero">
-        <img className="roster__hero-img" src="hero/Summer2020CapGF.png" />
-      </div>
+      <Hero heroText="Roster"/>
       <div className="roster__header">
-        <p className="roster__column country heading-3 font-semibold">Country</p>
-        <p className="roster__column player heading-3 font-semibold">Player</p>
-        <p className="roster__column group heading-3 font-semibold">Group</p>
+        <p className="roster__column roster__column--country font-secondary-semibold">Flag</p>
+        <p className="roster__column roster__column--player font-secondary-semibold">Player<span className="country-subtext font-secondary-light">Country</span></p>
+        <p className="roster__column roster__column--group font-secondary-semibold">Group</p>
       </div>
-      { roster.map(player => <Player key={`player-${player.player_id}`} {...player}/>)}
+      { roster.map(player => <RosterPlayer key={`player-${player.player_id}`} {...player}/>)}
     </div>
   );
 };
