@@ -11,6 +11,9 @@ const eventSchema = new Schema({
   available_points: {
     type: Array,
     required: true,
+  },
+  competitions_used: {
+    type: Array
   }
 }, {
   timestamps: true

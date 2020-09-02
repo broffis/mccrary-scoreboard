@@ -26,12 +26,12 @@ const competitionRouter = require('./routes/competition');
 const eventRouter = require('./routes/event');
 const scoreRouter = require('./routes/score');
 
-app.use('/players', playerRouter);
-app.use('/countries', countryRouter);
-app.use('/groups', groupRouter);
-app.use('/comps', competitionRouter);
-app.use('/events', eventRouter);
-app.use('/scores', scoreRouter);
+app.use('/api/v1/players', playerRouter);
+app.use('/api/v1/countries', countryRouter);
+app.use('/api/v1/groups', groupRouter);
+app.use('/api/v1/comps', competitionRouter);
+app.use('/api/v1/events', eventRouter);
+app.use('/api/v1/scores', scoreRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`)

@@ -1,10 +1,75 @@
 const router = require('express').Router();
 let Score = require('../models/score.model');
 
+let Player = require('../models/player.model');
+let Evt = require('../models/event.model');
+let Country = require('../models/country.model');
+let Group = require('../models/group.model');
+let Comp = require('../models/competition.model');
+
+let players, evts, countries, groups, competitions;
+
+Player.find().then(p => players = p.map(val => {
+  return {
+    id: `${val._id}`,
+    name: val.name,
+    country_id: val.country_id
+  };
+}));
+Evt.find().then(e => evts = e.map(val => {
+  return {
+    id: `${val._id}`,
+    name: val.event_name,
+    available_points: val.available_points
+  };
+}));
+Country.find().then(c => countries = c.map(val => {
+  return {
+    id: `${val._id}`,
+    name: val.name,
+    flag: val.flag
+  };
+}));
+Group.find().then(g => groups = g.map(val => {
+  return {
+    id: `${val._id}`,
+    name: val.group_name,
+    logo: val.logo,
+    competition_id: val.competition_id
+  };
+}));
+Comp.find().then(c => competitions = c.map(val => {
+  return {
+    id: `${val._id}`,
+    name: val.name,
+    date: val.date,
+    logo: val.logo
+  };
+}));
+
+
 // Get All
 router.route('/').get((req, res) => {
   Score.find()
-    .then(scores => res.json(scores))
+    .then(scores => {
+
+      let finalScores = scores.map(sc => {
+        const data = sc._doc;
+
+        const [data_from_players] = players.filter(p => data.player_id === p.id);
+        const [data_from_evts] = evts.filter(e => data.event_id === e.id);
+        const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+
+        return {
+          ...data,
+          player_name: data_from_players.name,
+          event_name: data_from_evts.name,
+          country_name: data_from_countries.name,
+          country_flag: data_from_countries.flag,
+        }
+      });
+      res.json(finalScores);
+    })
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -15,39 +80,27 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// Filter by All
-// router.route('/filter').post((req, res) => {
-//   Score.find()
-//     .then(scores => {
-//       let responseScores = [...scores];
-      
-//       if (req.body.event_id) {
-//         responseScores = responseScores.filter(score => score.event_id === req.body.event_id);
-//       }
-
-//       if (req.body.group_id) {
-//         responseScores = responseScores.filter(score => score.group_id === req.body.group_id);
-//       }
-
-//       if (req.body.competition_id) {
-//         responseScores = responseScores.filter(score => score.competition_id === req.body.competition_id);
-//       }
-
-//       if (req.body.player_id) {
-//         responseScores = responseScores.filter(score => score.player_id === req.body.player_id);
-//       }
-
-//       res.json(responseScores);
-//     })
-//     .catch(err => res.status(400).json('Error: ' + err));
-// })
-
 
 // Filter by Event
 router.route('/filter/byEvent/:id').get((req, res) => {
   Score.find()
     .then(scores => {
-      scores = scores.filter(score => score.event_id === req.params.id);
+      scores = scores.filter(score => score.event_id === req.params.id)
+        .map(sc => {
+          const data = sc._doc;
+
+          const [data_from_players] = players.filter(p => data.player_id === p.id);
+          const [data_from_evts] = evts.filter(e => data.event_id === e.id);
+          const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+
+          return {
+            ...data,
+            player_name: data_from_players.name,
+            event_name: data_from_evts.name,
+            country_name: data_from_countries.name,
+            country_flag: data_from_countries.flag,
+          }
+        })
       res.json(scores);
     })
     .catch(err => res.status(400).json('Error: ' + err));
@@ -57,7 +110,22 @@ router.route('/filter/byEvent/:id').get((req, res) => {
 router.route('/filter/byGroup/:id').get((req, res) => {
   Score.find()
     .then(scores => {
-      scores = scores.filter(score => score.group_id === req.params.id);
+      scores = scores.filter(score => score.group_id === req.params.id)
+        .map(sc => {
+          const data = sc._doc;
+
+          const [data_from_players] = players.filter(p => data.player_id === p.id);
+          const [data_from_evts] = evts.filter(e => data.event_id === e.id);
+          const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+  
+          return {
+            ...data,
+            player_name: data_from_players.name,
+            event_name: data_from_evts.name,
+            country_name: data_from_countries.name,
+            country_flag: data_from_countries.flag,
+          }
+        });
       res.json(scores);
     })
     .catch(err => res.status(400).json('Error: ' + err));
@@ -67,7 +135,22 @@ router.route('/filter/byGroup/:id').get((req, res) => {
 router.route('/filter/byComp/:id').get((req, res) => {
   Score.find()
     .then(scores => {
-      scores = scores.filter(score => score.competition_id === req.params.id);
+      scores = scores.filter(score => score.competition_id === req.params.id)
+        .map(sc => {
+          const data = sc._doc;
+
+          const [data_from_players] = players.filter(p => data.player_id === p.id);
+          const [data_from_evts] = evts.filter(e => data.event_id === e.id);
+          const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+
+          return {
+            ...data,
+            player_name: data_from_players.name,
+            event_name: data_from_evts.name,
+            country_name: data_from_countries.name,
+            country_flag: data_from_countries.flag,
+          }
+        });
       res.json(scores);
     })
     .catch(err => res.status(400).json('Error: ' + err));
@@ -77,7 +160,22 @@ router.route('/filter/byComp/:id').get((req, res) => {
 router.route('/filter/byPlayer/:id').get((req, res) => {
   Score.find()
     .then(scores => {
-      scores = scores.filter(score => score.player_id === req.params.id);
+      scores = scores.filter(score => score.player_id === req.params.id)
+        .map(sc => {
+          const data = sc._doc;
+
+          const [data_from_players] = players.filter(p => data.player_id === p.id);
+          const [data_from_evts] = evts.filter(e => data.event_id === e.id);
+          const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+
+          return {
+            ...data,
+            player_name: data_from_players.name,
+            event_name: data_from_evts.name,
+            country_name: data_from_countries.name,
+            country_flag: data_from_countries.flag,
+          }
+        });
       res.json(scores);
     })
     .catch(err => res.status(400).json('Error: ' + err));

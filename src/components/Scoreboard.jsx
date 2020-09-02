@@ -31,7 +31,7 @@ const Scoreboard = (props) => {
     let pointTotal = 0;
 
     player.event_scores.forEach(score => {
-      pointTotal += score.event_points;
+      pointTotal += score.points;
     });
 
     return {
