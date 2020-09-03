@@ -37,6 +37,24 @@ router.route('/add').post((req, res) => {
 });
 
 // Update Group
+router.route('/update/:id').post((req, res) => {
+  Group.findById(req.params.id)
+    .then(group => {
+      const { group_name, competition_id, logo, backgroundColor, borderColor, heroColor } = req.body
+
+      group.group_name = group_name;
+      group.competition_id = competition_id;
+      group.logo = logo;
+      group.backgroundColor = backgroundColor;
+      group.borderColor = borderColor;
+      group.heroColor = heroColor;
+
+      group.save()
+        .then(() => res.json('Group updated'))
+        .catch(err => res.status(400).json('Error:' + err))
+    })
+    .catch(err => res.status(400).json('Error:' + err))
+})
 
 // Delete Group
 

@@ -19,7 +19,9 @@ Group.find().then(g => groups = g.map(val => {
     id: `${val._id}`,
     name: val.group_name,
     logo: val.logo,
-    competition_id: val.competition_id
+    competition_id: val.competition_id,
+    background_color: val.backgroundColor,
+    border_color: val.borderColor,
   };
 }));
 Comp.find().then(c => competitions = c.map(val => {
@@ -47,6 +49,8 @@ router.route('/').get((req, res) => {
           country_name: data_from_countries.name,
           country_flag: data_from_countries.flag,
           group_name: data_from_groups.name,
+          background_color: data_from_groups.background_color,
+          border_color: data_from_groups.border_color
         }
       })
       

@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Switch, Route, useRouteMatch } from 'react-router-dom';
 import axios from "../modules/axios";
 
-// import { groupPageData, events, groupData } from '../assets/dummy-data.json';
-
 import Scoreboard from '../components/Scoreboard.jsx';
 import Hero from '../components/Hero.jsx';
 
 const Group = (props) => {
   const { groupId } = useParams();
   let { path, url } = useRouteMatch();
-  // const groupScores = groupPageData.filter(player => player.group_id === parseInt(groupId));
   const [group, setGroup] = useState([]);
   const [groupScores, setGroupScores] = useState([]);
   const [events, setEvents] = useState([]);
@@ -42,7 +39,9 @@ const Group = (props) => {
               country_name: current.country_name,
               country_flag: current.country_flag,
               group_id: current.group_id,
-              event_scores: []
+              event_scores: [],
+              background_color: current.background_color,
+              border_color: current.border_color
             }]);
           } else {
             return acc
@@ -56,6 +55,8 @@ const Group = (props) => {
           let scoring_player_index = filtered_players.indexOf(scoring_player);
 
           filtered_players[scoring_player_index].event_scores.push({
+            score_id: `${score._id}`,
+            competition_id: score.competition_id,
             event_name: score.event_name,
             points: score.points,
             event_id: score.event_id
@@ -70,17 +71,22 @@ const Group = (props) => {
 
 
             let new_score = {
+              score_id: null,
               event_id: e._id,
               event_name: e.event_name,
               points: 0,
+              competition_id: group.competition_id
             }
 
             if (player_score_index >= 0) {
               new_score.points = player.event_scores[player_score_index].points;
+              new_score.score_id = player.event_scores[player_score_index].score_id;
+              new_score.competition_id = player.event_scores[player_score_index].competition_id;
             }
 
             return new_score
           });
+
 
           player.event_scores = event_scores.sort((a, b) => {
             if (a.id > b.id) return 1;
@@ -89,12 +95,10 @@ const Group = (props) => {
           });
         });
 
-
-
         return filtered_players
       })
       .then(scores => setGroupScores(scores))
-  }, [events, groupId]);
+  }, [events, group.competition_id, groupId]);
 
 
   const eventHeader = events.sort((a,b) => {
@@ -102,8 +106,6 @@ const Group = (props) => {
     if (a.id < b.id) return -1;
     return 0;
   });
-
-  // const [groupInfo] = groupData.filter(group => group.group_id === parseInt(groupId));
 
   const eventTitles = eventHeader.map(event => event.event_name.replace(/\s/, '')).join('|');
 
@@ -113,11 +115,10 @@ const Group = (props) => {
       <Route path={url} component={() => (
         <React.Fragment>
           <Hero heroText={group.name} heroImage={group.logo} bgColor={group.heroColor}/>
-          <Scoreboard scores={groupScores} disableLinks={false} groupId={groupId}/>
+          <Scoreboard scores={groupScores} disableLinks={false} groupId={groupId} events={events}/>
         </React.Fragment>
       ) } />
     </Switch>
-    // <div>This is a test</div>
   );
 }
 

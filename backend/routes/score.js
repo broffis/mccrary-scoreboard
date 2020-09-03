@@ -13,7 +13,8 @@ Player.find().then(p => players = p.map(val => {
   return {
     id: `${val._id}`,
     name: val.name,
-    country_id: val.country_id
+    country_id: val.country_id,
+    group_id: val.group_id
   };
 }));
 Evt.find().then(e => evts = e.map(val => {
@@ -35,7 +36,9 @@ Group.find().then(g => groups = g.map(val => {
     id: `${val._id}`,
     name: val.group_name,
     logo: val.logo,
-    competition_id: val.competition_id
+    competition_id: val.competition_id,
+    background_color: val.backgroundColor,
+    border_color: val.borderColor,
   };
 }));
 Comp.find().then(c => competitions = c.map(val => {
@@ -59,6 +62,7 @@ router.route('/').get((req, res) => {
         const [data_from_players] = players.filter(p => data.player_id === p.id);
         const [data_from_evts] = evts.filter(e => data.event_id === e.id);
         const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+        const [data_from_groups] = groups.filter(g => data_from_players.group_id === g.id);
 
         return {
           ...data,
@@ -66,6 +70,8 @@ router.route('/').get((req, res) => {
           event_name: data_from_evts.name,
           country_name: data_from_countries.name,
           country_flag: data_from_countries.flag,
+          background_color: data_from_groups.background_color,
+          border_color: data_from_groups.border_color
         }
       });
       res.json(finalScores);
@@ -92,6 +98,7 @@ router.route('/filter/byEvent/:id').get((req, res) => {
           const [data_from_players] = players.filter(p => data.player_id === p.id);
           const [data_from_evts] = evts.filter(e => data.event_id === e.id);
           const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+          const [data_from_groups] = groups.filter(g => data_from_players.group_id === g.id);
 
           return {
             ...data,
@@ -99,6 +106,8 @@ router.route('/filter/byEvent/:id').get((req, res) => {
             event_name: data_from_evts.name,
             country_name: data_from_countries.name,
             country_flag: data_from_countries.flag,
+            background_color: data_from_groups.background_color,
+            border_color: data_from_groups.border_color
           }
         })
       res.json(scores);
@@ -117,6 +126,7 @@ router.route('/filter/byGroup/:id').get((req, res) => {
           const [data_from_players] = players.filter(p => data.player_id === p.id);
           const [data_from_evts] = evts.filter(e => data.event_id === e.id);
           const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+          const [data_from_groups] = groups.filter(g => data_from_players.group_id === g.id);
   
           return {
             ...data,
@@ -124,6 +134,8 @@ router.route('/filter/byGroup/:id').get((req, res) => {
             event_name: data_from_evts.name,
             country_name: data_from_countries.name,
             country_flag: data_from_countries.flag,
+            background_color: data_from_groups.background_color,
+            border_color: data_from_groups.border_color
           }
         });
       res.json(scores);
@@ -142,6 +154,7 @@ router.route('/filter/byComp/:id').get((req, res) => {
           const [data_from_players] = players.filter(p => data.player_id === p.id);
           const [data_from_evts] = evts.filter(e => data.event_id === e.id);
           const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+          const [data_from_groups] = groups.filter(g => data_from_players.group_id === g.id);
 
           return {
             ...data,
@@ -149,6 +162,8 @@ router.route('/filter/byComp/:id').get((req, res) => {
             event_name: data_from_evts.name,
             country_name: data_from_countries.name,
             country_flag: data_from_countries.flag,
+            background_color: data_from_groups.background_color,
+            border_color: data_from_groups.border_color
           }
         });
       res.json(scores);
@@ -167,6 +182,7 @@ router.route('/filter/byPlayer/:id').get((req, res) => {
           const [data_from_players] = players.filter(p => data.player_id === p.id);
           const [data_from_evts] = evts.filter(e => data.event_id === e.id);
           const [data_from_countries] = countries.filter(c => data_from_players.country_id === c.id);
+          const [data_from_groups] = groups.filter(g => data_from_players.group_id === g.id);
 
           return {
             ...data,
@@ -174,6 +190,8 @@ router.route('/filter/byPlayer/:id').get((req, res) => {
             event_name: data_from_evts.name,
             country_name: data_from_countries.name,
             country_flag: data_from_countries.flag,
+            background_color: data_from_groups.background_color,
+            border_color: data_from_groups.border_color
           }
         });
       res.json(scores);
@@ -184,7 +202,17 @@ router.route('/filter/byPlayer/:id').get((req, res) => {
 
 // Add New
 router.route('/add').post((req, res) => {
-  const score = req.body.score
+  const { player_id, group_id } = req.body;
+  const { event_id, points, competition_id } = req.body.score;
+
+  const score = {
+    player_id,
+    group_id,
+    event_id,
+    points,
+    competition_id,
+    created_by_user_id: "5f4968c84d31ce9fde32e1a4"
+  }
 
   const newScore = new Score(score);
 
@@ -197,14 +225,14 @@ router.route('/add').post((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Score.findById(req.params.id)
     .then(score => {
-      const { player_id, group_id, event_id, competition_id, points, created_by_user_id } = req.body.score;
+      const { event_id, points, competition_id } = req.body.score;
+      const { player_id, group_id } = req.body;
 
       score.player_id = player_id;
       score.group_id = group_id;
       score.event_id = event_id;
-      score.competition_id = competition_id;
       score.points = points;
-      score.created_by_user_id = created_by_user_id;
+      score.competition_id = competition_id;
 
       score.save()
         .then(() => res.json('Score updated!'))

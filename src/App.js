@@ -6,8 +6,10 @@ import './assets/style/all.scss';
 import Roster from './containers/Roster';
 import Group from './containers/Group';
 import FullScoreboard from './containers/Scoreboard';
+import Scoreboard from './components/Scoreboard';
 
 function App() {
+  const competitionId = "5f481e84691a987f93f9bfb0";
   return (
     <div className="App">
       <nav className="nav-bar">
@@ -27,7 +29,7 @@ function App() {
         </ul>
       </nav>
       <Switch>
-        <Route path="/scoreboard" component={FullScoreboard} />
+        <Route path="/scoreboard/" component={() => <FullScoreboard competition_id={competitionId}/>}/>
         <Route path="/roster/" component={Roster} />
         <Route path="/group/:groupId" component={Group}/>
         <Route path="/groups/" exact component={() => <h1>Group page</h1>} />

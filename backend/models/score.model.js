@@ -25,7 +25,7 @@ const scoringEventSchema = new Schema({
   },
   created_by_user_id: {
     type: String,
-    required: true,
+    // required: true,
   }
 }, {
   timestamps: true,
