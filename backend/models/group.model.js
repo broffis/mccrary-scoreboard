@@ -18,7 +18,16 @@ const groupSchema = new Schema({
   logo: {
     type: String,
     required: true
-  }
+  },
+  backgroundColor: {
+    type: String,
+  },
+  borderColor: {
+    type: String
+  },
+  heroColor: {
+    type: String,
+  },
 }, {
   timestamps: true,
 });
