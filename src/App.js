@@ -7,7 +7,6 @@ import Roster from './containers/Roster';
 import Group from './components/GroupScoreboard';
 import Groups from './containers/Groups';
 import FullScoreboard from './containers/Scoreboard';
-import Scoreboard from './components/Scoreboard';
 
 function App() {
   const competitionId = "5f481e84691a987f93f9bfb0";
