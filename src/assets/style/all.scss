@@ -19,19 +19,28 @@
 }
 
 .nav {
-  width: 50%;
+  width: 100%;
   list-style: none;
   display: flex;
   justify-content: space-between;
+  padding: 5px 20px;
+  background-color: $color-gray;
 
   &__link {
     margin: 15px 0;
 
     > a {
       text-decoration: none;
-      color: black;
-      font-size: 1.5rem;
+      color: $color-white;
+      font-size: 2rem;
       font-weight: bold;
+    }
+
+    &--text {
+      font-family: $font-primary;
+      font-weight: $font-family-lightest;
+      color: $color-white;
+      text-shadow: -1px 0 #262262, 0 1px #262262, 1px 0 #262262, 0 -1px #262262;
     }
   }
 }

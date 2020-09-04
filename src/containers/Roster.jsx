@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Hero from '../components/Hero';
 import RosterPlayer from '../components/RosterPlayer';
 
-import axios from '../modules/axios';
-import { useEffect, useState } from 'react';
-
-// import { roster } from '../assets/dummy-data.json';
+import myAxios from '../modules/axios';
+import axios from 'axios';
 
 const Roster = () => {
   const [roster, setRoster] = useState([]);
   useEffect(() => {
-    axios.get('/players')
-      .then(players => setRoster(players.data))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
+
+    const loadData = () => {
+      try {
+        myAxios.get('/players', { cancelToken: source.token })
+          .then(players => setRoster(players.data))
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("cancelled");
+        } else {
+          throw error;
+        }
+      }
+    }
+    loadData();
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   return (

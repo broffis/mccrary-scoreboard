@@ -27,9 +27,9 @@
     display: none;
     align-self: center;
     font-size: 3.5rem;
-    font-family: "Boucherie Block", serif;
-    color: #fff;
-    font-weight: 100;
+    font-family: $font-primary;
+    font-weight: $font-family-lightest;
+    color: $color-white;
     text-decoration: none;
 
     @include breakpoint-sm {
