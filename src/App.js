@@ -4,7 +4,8 @@ import { Route, Switch, Link } from 'react-router-dom';
 import './assets/style/all.scss';
 
 import Roster from './containers/Roster';
-import Group from './containers/Group';
+import Group from './components/GroupScoreboard';
+import Groups from './containers/Groups';
 import FullScoreboard from './containers/Scoreboard';
 import Scoreboard from './components/Scoreboard';
 
@@ -31,9 +32,9 @@ function App() {
       <Switch>
         <Route path="/scoreboard/" component={() => <FullScoreboard competition_id={competitionId}/>}/>
         <Route path="/roster/" component={Roster} />
+        <Route path="/groups/" exact component={() => <Groups competition_id={competitionId}/>}/>
         <Route path="/group/:groupId" component={Group}/>
-        <Route path="/groups/" exact component={() => <h1>Group page</h1>} />
-        <Route path="/"  exact component={() => <h1>Home Page</h1> }/>
+        <Route path="/"  exact component={() => <FullScoreboard competition_id={competitionId}/> }/>
         <Route render={() => <h1>Home Page Not Found</h1>}/>
       </Switch>
 

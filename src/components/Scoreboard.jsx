@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { calculate_and_sort } from '../modules/score-calculator';
+
 import GroupPlayer from './GroupPlayer';
 import Modal from './Modal';
 import EventUpdate from './EventUpdate';
@@ -16,23 +18,7 @@ const Scoreboard = (props) => {
     return 0;
   })
 
-  const playerScores = props.scores.map(player => {
-    let pointTotal = 0;
-
-    player.event_scores.forEach(score => {
-      pointTotal += score.points;
-    });
-
-    return {
-      total_points: pointTotal,
-      ...player
-    }
-  })
-  .sort((a, b) => {
-    if (a.total_points > b.total_points) return -1;
-    if (a.total_points < b.total_points) return 1;
-    return 0;
-  })
+  const playerScores = calculate_and_sort(props.scores);
 
   const openEventModal = (eventId) => {
     let groupEventData = props.scores.map(player => {
