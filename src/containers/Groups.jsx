@@ -16,7 +16,7 @@ const Groups = (props) => {
 
   return (
     <section>
-      { groups.map(group => <GroupBanner competition_id={competition_id} {...group}/>) }
+      { groups.map(group => <GroupBanner key={`${group.group_name}-${competition_id}`} competition_id={competition_id} {...group}/>) }
     </section>
     
   );

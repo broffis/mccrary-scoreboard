@@ -18,7 +18,7 @@ const Scoreboard = (props) => {
     return 0;
   })
 
-  const playerScores = calculate_and_sort(props.scores);
+  const playerScores = props.scores !== undefined ? calculate_and_sort(props.scores) : [];
 
   const openEventModal = (eventId) => {
     let groupEventData = props.scores.map(player => {

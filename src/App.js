@@ -38,7 +38,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${showSideBarMenu && 'side-bar-open'}`}>
       <nav className="nav-bar">
         <ul className="nav">
           <div className="hamburger-container" onClick={() => toggleShowSideBarMenu(!showSideBarMenu)} >
@@ -60,8 +60,6 @@ function App() {
         <Route path="/"  exact component={() => <FullScoreboard competition_id={competitionId} events={events}/> }/>
         <Route render={() => <h1>Home Page Not Found</h1>}/>
       </Switch>
-
-      
     </div>
   );
 }
