@@ -7,11 +7,9 @@ const SideBarMenu = (props) => {
   let comp_name, groups_dropdown;
 
   if (props.groups && props.groups.length >= 1) {
-    console.log('we have groups');
-
     groups_dropdown = props.groups.map(group => {
       return (
-        <li className="side-bar-menu__sub-link">
+        <li className="side-bar-menu__sub-link" key={`group-single-select-${group._id}`}>
           <Link to={`/group/${group._id}`}>{group.group_name}</Link>
         </li>
       )

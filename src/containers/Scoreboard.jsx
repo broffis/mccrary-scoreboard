@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../modules/axios';
-import baseAxios from 'axios'
 
 import Scoreboard from '../components/Scoreboard';
 import Hero from '../components/Hero';
@@ -8,12 +7,10 @@ import Hero from '../components/Hero';
 import { aggregateScores } from "../modules/score-calculator";
 
 const FullScoreboard = (props) => {
-  const competition_id = props.competition_id;
-  // console.log('params competitionId', competitionId, 'props competitionId', props_comp_id);
+  const {competition_id, events} = props;
 
-  const [ activeTab, setActiveTab ] = useState('scoreboard');
+  const [activeTab, setActiveTab] = useState('scoreboard');
   const [scores, setScores] = useState([]);
-  const [events, setEvents] = useState([]);
   const tabs = [
     {
       label: 'Scoreboard',
@@ -26,36 +23,15 @@ const FullScoreboard = (props) => {
   ];
 
   useEffect(() => {
-    const CancelToken = baseAxios.CancelToken;
-    const source = CancelToken.source();
+    if(events !== undefined) {
+      axios.get(`/scores/filter/byComp/${competition_id}`)
+      .then(scores => {
+        return aggregateScores(competition_id, scores.data, events);
+      })
+      .then(scores => setScores(scores));
+    }
 
-    axios.get(`/events/filter/byComp/${competition_id}`, { cancelToken: source.token })
-      .then(evts => setEvents(evts.data))
-      .catch(thrown => {
-        if (baseAxios.isCancel(thrown)) {
-          console.log('Request canceled', thrown.message)
-        } else {
-          throw thrown
-        }
-      });
-  }, [competition_id]);
-
-  useEffect(() => {
-    const CancelToken = baseAxios.CancelToken;
-    const source = CancelToken.source();
-
-    axios.get(`/scores/filter/byComp/${competition_id}`, { cancelToken: source.token })
-    .then(scores => {
-      return aggregateScores(competition_id, scores.data, events);
-    })
-    .then(scores => setScores(scores))
-    .catch(thrown => {
-      if (baseAxios.isCancel(thrown)) {
-        console.log('Request canceled', thrown.message)
-      } else {
-        throw thrown
-      }
-    });
+    
   }, [competition_id, events])
 
   let display = <h2>Nothing selected</h2>;
