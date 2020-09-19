@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 
 import axios from './modules/axios';
@@ -12,25 +12,21 @@ import FullScoreboard from './containers/Scoreboard';
 import SidebarMenu from './components/SideBarMenu';
 
 function App() {
-  const isMountedRef = useRef(null);
-
   const competitionId = "5f481e84691a987f93f9bfb0";
   const [competition, setCompetition] = useState();
   const [showSideBarMenu, toggleShowSideBarMenu] = useState(false);
   const [groups, setGroups] = useState();
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    isMountedRef.current = true;
+    axios.get(`/groups/filter/byComp/${competitionId}`)
+      .then(groups => setGroups(groups.data))
 
-    if (isMountedRef) {
-      axios.get(`/groups/filter/byComp/${competitionId}`)
-        .then(groups => setGroups(groups.data))
+    axios.get(`/comps/${competitionId}`)
+      .then(comps => setCompetition(comps.data))
 
-      axios.get(`/comps/${competitionId}`)
-        .then(comps => setCompetition(comps.data))
-    }
-    
-    return () => isMountedRef.current = false;
+      axios.get(`/events/filter/byComp/${competitionId}`)
+      .then(evts => setEvents(evts.data))
   }, [competitionId]);
 
   
@@ -57,11 +53,11 @@ function App() {
       </nav>
       <SidebarMenu competition={competition} groups={groups} showMenu={showSideBarMenu} close={() => toggleShowSideBarMenu(!showSideBarMenu)}/>
       <Switch>
-        <Route path="/scoreboard/" component={() => <FullScoreboard competition_id={competitionId}/>}/>
+        <Route path="/scoreboard/" component={() => <FullScoreboard competition_id={competitionId} events={events}/>}/>
         <Route path="/roster/" component={Roster} />
         <Route path="/groups/" exact component={() => <Groups competition_id={competitionId}/>}/>
         <Route path="/group/:groupId" component={Group}/>
-        <Route path="/"  exact component={() => <FullScoreboard competition_id={competitionId}/> }/>
+        <Route path="/"  exact component={() => <FullScoreboard competition_id={competitionId} events={events}/> }/>
         <Route render={() => <h1>Home Page Not Found</h1>}/>
       </Switch>
 
