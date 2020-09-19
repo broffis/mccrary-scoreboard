@@ -67,7 +67,7 @@ export const aggregateScores = (competition_id, scores, events) => {
   return filtered_players
 };
 
-export const calculate_and_sort = (scores, filter = scores.length) => {
+export const calculate_and_sort = (scores, filter) => {
   let all_scores = scores.map(player => {
     let pointTotal = 0;
 
@@ -86,7 +86,9 @@ export const calculate_and_sort = (scores, filter = scores.length) => {
     return 0;
   });
 
-  all_scores = all_scores.slice(0, filter);
+  // if (filter >= 1) {
+  //   all_scores = all_scores.slice(0, filter);
+  // }
 
   return all_scores;
 }

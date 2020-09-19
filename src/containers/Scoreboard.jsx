@@ -10,7 +10,7 @@ const FullScoreboard = (props) => {
   const {competition_id, events} = props;
 
   const [activeTab, setActiveTab] = useState('scoreboard');
-  const [scores, setScores] = useState([]);
+  const [scores, setScores] = useState();
   const tabs = [
     {
       label: 'Scoreboard',
@@ -25,10 +25,10 @@ const FullScoreboard = (props) => {
   useEffect(() => {
     if(events !== undefined) {
       axios.get(`/scores/filter/byComp/${competition_id}`)
-      .then(scores => {
-        return aggregateScores(competition_id, scores.data, events);
+      .then(s => {
+        return aggregateScores(competition_id, s.data, events);
       })
-      .then(scores => setScores(scores));
+      .then(s => setScores(s));
     }
 
     

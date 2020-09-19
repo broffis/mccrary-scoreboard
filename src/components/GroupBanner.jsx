@@ -15,19 +15,18 @@ const GroupBanner = (props) => {
 
   useEffect(() => {
     axios.get(`/scores/filter/byGroup/${props._id}`)
-      .then(scores => {
-        return aggregateScores(props.competition_id, scores.data, events);
+      .then(s => {
+        return aggregateScores(props.competition_id, s.data, events);
       })
-      .then(scores => {
-        return calculate_and_sort(scores, 1);
+      .then(s => {
+        return calculate_and_sort(s);
       })
-      .then(scores => setScores(scores))
+      .then(s => setScores(s))
   }, [events, props._id, props.competition_id, props.groupId]);
 
   let display = <h3>No current leader</h3>
 
   if (scores && scores.length >= 0) {
-    console.log('scores', scores)
     display = <img className="group-banner__leader-flag" src={scores[0].country_flag} alt={`${scores[0].country_name}`}/>
   }
 
