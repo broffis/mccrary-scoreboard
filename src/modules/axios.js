@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiRoute = 'http://localhost:5000/api/v1';
+const apiRoute = process.env.REACT_APP_API_ENDPOINT;
 let url = apiRoute;
 
 const local = axios.create({
